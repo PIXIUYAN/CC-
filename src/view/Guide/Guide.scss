@@ -1,0 +1,230 @@
+@font-face {
+    font-family: '楷书';
+    src: url('/public/font/汉仪细行楷简_20150930091249.ttf')
+}
+
+// full-page
+.fullPage {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    & .swiper-slide {
+        position: relative;
+        background-size: contain;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+.ani {
+    position: absolute;
+    font-family: '楷书';
+    display: block;
+}
+
+// 第一屏
+.full-one-box {
+    width: 100vw;
+    height: 6vh;
+    left: 0;
+    top: 40%;
+    position: relative;
+    color: white;
+    & .full-one-input {
+        background: rgba(0, 0, 0, .5);
+        width: 70vw;
+        line-height: 6vh;
+        border: 1px solid lightcyan;
+        color: white;
+        padding-left: 10px;
+        font-size: 15px;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    & .full-one-search {
+        left: calc(85vw - 6vh - 10px);
+        font-size: 16px;
+        height: 6vh;
+        width: 100vw;
+    }
+    & .full-one-search embed {
+        height: 100%;
+    }
+    & .full-one-text {
+        width: 100vw;
+        left: 0;
+        font-size: 22px;
+        text-align: center;
+        top: -100%;
+    }
+    & .full-one-text2 {
+        left: 20%;
+        line-height: 6vh;
+        font-size: 16px;
+        height: 6vh;
+    }
+}
+
+
+/* 第二屏 */
+
+.full-two-box {
+    background: #FFF0B8;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    & .full-two-img-box,
+    & .full-two-text-box {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        flex-direction: column;
+    }
+    & .full-two-img-box {
+        & .full-two-img {
+            width: 50vw;
+            height: 50vw;
+            border-radius: 100%;
+            position: relative !important;
+        }
+    }
+    & .full-two-text-box {
+        padding: 20px;
+        font-weight: 900;
+        color: #9A62CF;
+        justify-content: flex-start;
+        & .ani {
+            position: relative;
+        }
+        & .text-one,
+        & .text-two {
+            font-size: 40px;
+            line-height: 50px;
+            width: 100vw;
+            text-align: center;
+        }
+        & .text-three {
+            margin-top: 40px;
+            line-height: 20px;
+            font-size: 5vw;
+            line-height: 1.1;
+            align-self: center;
+            text-align: center;
+            color: #81ABBB;
+        }
+    }
+}
+
+
+/* 第三屏 */
+
+.full-three-box {
+    background: #E1D5BB;
+    color: #B36D5F;
+    & .zl-title-box {
+        font-size: 28px;
+        width: 100vw;
+        top: 40%;
+        line-height: 1.1;
+        text-align: left;
+        color: #C32427;
+    }
+    & .zl-title-one {
+        left: 1em;
+        top: 0;
+        width: 100vw;
+    }
+    & .zl-title-two {
+        width: 100vw;
+        top: 1.2em;
+        left: 3em;
+    }
+    & .zl-img-box {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height: 50%;
+    }
+    & .zl-img-box-colum {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        &>canvas {
+            margin-left: 5%;
+        }
+    }
+    & .zl-text-box {
+        height: 50%;
+        display: flex;
+        &>div {
+            flex: 1;
+            position: relative;
+        }
+    }
+    & .zl-img {
+        width: 25vw;
+        height: 25vw;
+        margin: 0;
+        position: relative !important;
+    } // 竖排
+    & .zl-text-vertical-one,
+    & .zl-text-vertical-two {
+        width: 1em;
+        font-size: 20px;
+    }
+    & .zl-text-vertical-one {
+        right: 3em;
+        top: 1em;
+    }
+    & .zl-text-vertical-two {
+        right: 1em;
+        top: 4em;
+    } // 横排
+    & .zl-text-horizontal-one,
+    & .zl-text-horizontal-two {
+        flex: 1;
+        font-size: 18px;
+    }
+    & .zl-text-horizontal-one {
+        top: 35%;
+    }
+    & .zl-text-horizontal-two {
+        top: 45%;
+    }
+}
+
+
+/* 第4屏 */
+
+.full-four-box {
+    background: url("/public/images/read.jpg");
+    & .jump-home {
+        bottom: 0;
+        height: 76px;
+        line-height: 76px;
+        font-size: 22px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        color: #4D8BF5;
+        font-weight: 900;
+        align-items: center;
+        &>button {
+            border: 1px solid #E74840;
+            background: white;
+            margin-left: 10px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-family: '楷书';
+            color: #E64841;
+            font-weight: 900;
+            outline: none;
+            font-size: 17px;
+        }
+    }
+}

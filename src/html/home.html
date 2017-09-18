@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/reset.css">
+    <link rel="stylesheet" href="../public/css/swiper.min.css">
+    <link rel="stylesheet" href="../public/css/animate.css">
+    <style>
+        @font-face {
+            font-family: '楷书';
+            src: url('../public/font/汉仪细行楷简_20150930091249.ttf')
+        }
+        .fullPage {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .fullPage .swiper-slide {
+            position: relative;
+            background-size: contain;
+        }
+        .ani {
+            position: absolute;
+            font-family: '楷书';
+            display: block;
+        }
+        /* 第一屏 */
+
+        .full-one-box {
+            width: 100vw;
+            height: 6vh;
+            left: 0;
+            top: 40%;
+            position: relative;
+            color: white;
+        }
+
+        .full-one-box .full-one-input {
+            background: rgba(0, 0, 0, .5);
+            width: 70vw;
+            line-height: 6vh;
+            border: 1px solid lightcyan;
+            color: white;
+            padding-left: 10px;
+            font-size: 15px;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .full-one-box .full-one-search {
+            left: calc(85vw - 6vh - 10px);
+            font-size: 16px;
+            height: 6vh;
+            width: 100vw;
+        }
+
+        .full-one-search embed {
+            height: 100%;
+        }
+
+        .full-one-box .full-one-text {
+            width: 100vw;
+            left: 0;
+            font-size: 22px;
+            text-align: center;
+            top: -100%;
+        }
+
+        .full-one-text2 {
+            left: 20%;
+            line-height: 6vh;
+            font-size: 16px;
+            height: 6vh;
+        }
+        /* 第二屏 */
+
+        .full-two-box {
+            background: #FFF0B8;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full-two-img-box,
+        .full-two-text-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        .full-two-img-box .full-two-img {
+            width: 50vw;
+            height: 50vw;
+            border-radius: 100%;
+            position: relative !important;
+        }
+
+        .full-two-text-box {
+            padding: 20px;
+            font-weight: 900;
+            color: #9A62CF;
+            justify-content: flex-start;
+        }
+
+        .full-two-text-box .ani {
+            position: relative;
+        }
+
+        .text-one,
+        .text-two {
+            font-size: 40px;
+            line-height: 50px;
+            width: 100vw;
+            text-align: center;
+        }
+
+        .text-three {
+            margin-top: 40px;
+            line-height: 20px;
+            font-size: 5vw;
+            line-height: 1.1;
+            align-self: center;
+            text-align: center;
+            color: #81ABBB;
+        }
+        /* 第三屏 */
+
+        .full-three-box {
+            background: #E1D5BB;
+            color: #B36D5F;
+        }
+
+        .zl-title-box {
+            font-size: 28px;
+            width: 100vw;
+            top: 40%;
+            line-height: 1.1;
+            text-align: left;
+            color: #C32427;
+        }
+
+        .zl-title-one {
+            left: 1em;
+            top: 0;
+            width: 100vw;
+        }
+
+        .zl-title-two {
+            width: 100vw;
+            top: 1.2em;
+            left: 3em;
+        }
+
+        .zl-img-box {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 50%;
+        }
+
+        .zl-img-box-colum {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .zl-img-box-colum>canvas {
+            margin-left: 5%;
+        }
+
+        .zl-text-box {
+            height: 50%;
+            display: flex;
+        }
+
+        .zl-text-box>div {
+            flex: 1;
+            position: relative;
+        }
+
+        .zl-img {
+            width: 25vw;
+            height: 25vw;
+            margin: 0;
+            position: relative !important;
+        }
+        /* 竖排 */
+
+        .zl-text-vertical-one,
+        .zl-text-vertical-two {
+            width: 1em;
+            font-size: 20px;
+        }
+
+        .zl-text-vertical-one {
+            right: 3em;
+            top: 1em;
+        }
+
+        .zl-text-vertical-two {
+            right: 1em;
+            top: 4em;
+        }
+        /* 横排 */
+
+        .zl-text-horizontal-one,
+        .zl-text-horizontal-two {
+            flex: 1;
+            font-size: 18px;
+        }
+
+        .zl-text-horizontal-one {
+            top: 35%;
+        }
+
+        .zl-text-horizontal-two {
+            top: 45%;
+        }
+        /* 第4屏 */
+
+        .full-four-box {
+            background: url(../public/images/read.jpg);
+        }
+
+        .jump-home {
+            bottom: 0;
+            height: 76px;
+            line-height: 76px;
+            font-size: 22px;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            color: #4D8BF5;
+            font-weight: 900;
+            align-items: center;
+        }
+
+        .jump-home>button {
+            border: 1px solid #E74840;
+            background: white;
+            margin-left: 10px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-family: '楷书';
+            color: #E64841;
+            font-weight: 900;
+            outline: none;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="swiper-container fullPage">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="
+            background-image:url('../public/images/bg_img.jpeg');
+            background-size:cover;
+            background-repeat:no-repeat;
+            ">
+                <div class="full-one-box">
+                    <input type="text" readonly class="ani full-one-input   " swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.1s">
+                    <div class="ani full-one-search
+                      "  swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay=".8s">
+                        <embed src="../public/images/search.svg" type="">
+                    </div>
+                    <span class="ani full-one-text2  " swiper-animate-effect="rollIn" swiper-animate-duration="1s" swiper-animate-delay=".8s"> 一键秒搜 </span>
+                    <span class="ani full-one-text " swiper-animate-effect="jackInTheBox" swiper-animate-duration="1s" swiper-animate-delay="2.2s"> 万水千山,你愿陪我一起看吗? </span>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="full-two-box">
+                    <div class="full-two-img-box">
+                        <img src="../public/images/full-two.png" class="ani full-two-img" swiper-animate-effect="rollIn" swiper-animate-duration="1s"
+                            swiper-animate-delay=".2s">
+                    </div>
+
+
+                    <div class="full-two-text-box">
+                        <div class="ani text-one" swiper-animate-effect="slideInRight" swiper-animate-duration="1s" swiper-animate-delay="1.2s">
+                            萝卜青菜
+                        </div>
+                        <div class="ani text-two" swiper-animate-effect="slideInLeft" swiper-animate-duration="1s" swiper-animate-delay="1.2s">
+                            各有所爱
+                        </div>
+                        <div class=" ani text-three" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="2.2s">
+                            近百种分类、上千个标签，小说榜单，一站式精彩呈现，不再为找书而头痛
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide full-three-box">
+
+                <div class="ani zl-title-box" swiper-animate-effect="rotateOut" swiper-animate-duration="1s" swiper-animate-delay="2.5s">
+                    <div class="ani zl-title-one" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay=".2s">
+                        那些年,
+                    </div>
+                    <div class=" ani zl-title-two" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1.2s">
+                        我们追过的武侠..
+                    </div>
+                </div>
+
+
+                <div class="zl-img-box">
+                    <div class="zl-img-box-colum">
+                        <canvas class="ani zl-img" swiper-animate-effect="jackInTheBox" swiper-animate-duration=".5s" swiper-animate-delay="3.5s">
+                        </canvas>
+                        <canvas class="ani zl-img" swiper-animate-effect="jackInTheBox" swiper-animate-duration=".5s" swiper-animate-delay="4s">
+                        </canvas>
+                    </div>
+                    <div class="zl-img-box-colum">
+
+                        <canvas class="ani zl-img" swiper-animate-effect="jackInTheBox" swiper-animate-duration=".5s" swiper-animate-delay="4.5s">
+                        </canvas>
+                        <canvas class="ani zl-img" swiper-animate-effect="jackInTheBox" swiper-animate-duration=".5s" swiper-animate-delay="5s">
+                        </canvas>
+                        <canvas class="ani zl-img" swiper-animate-effect="jackInTheBox" swiper-animate-duration=".5s" swiper-animate-delay="5.5s">
+                        </canvas>
+                    </div>
+
+                    <div class="zl-img-box-colum">
+                        <canvas class="ani zl-img" swiper-animate-effect="jackInTheBox" swiper-animate-duration=".5s" swiper-animate-delay="6s">
+                        </canvas>
+                        <canvas class="ani zl-img" swiper-animate-effect="jackInTheBox" swiper-animate-duration=".5s" swiper-animate-delay="6.5s">
+                        </canvas>
+
+                    </div>
+
+                </div>
+                <div class="zl-text-box">
+                    <div class="zl-text-vertical">
+                        <div class="ani zl-text-vertical-one" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="7s">
+                            飞雪连天射白鹿
+                        </div>
+                        <div class="ani zl-text-vertical-two" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="7s">
+                            笑书神侠倚碧鸳
+                        </div>
+                    </div>
+                    <div class="zl-text-horizontal">
+                        <div class="ani zl-text-horizontal-one" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="8s">
+                            江湖气短 儿女情长
+                        </div>
+                        <div class="ani zl-text-horizontal-two" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="8s">
+                            百转千回 再入江湖
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide full-four-box">
+                <div class=" ani jump-home" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay=".5s">
+                    <span>完美体验</span>
+                    <button class="animated pulse infinite">一触即发</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+<script src="../public/js/swiper.min.js"></script>
+<script src="../public/js/swiper.animate1.0.2.min.js"></script>
+<script>
+    var canvasList = document.querySelectorAll('.zl-img');
+    console.log(canvasList)
+    var imgSrc = "../public/images/金庸/越.png";
+    var image = new Image();
+    image.src = imgSrc;
+    image.onload = function () {
+        for (var i = 0; i < canvasList.length; i++) {
+            var canvas = canvasList[i];
+            console.log(canvas)
+            var context = canvas.getContext('2d');
+            var w = canvas.clientWidth;
+            var h = canvas.clientHeight;
+            canvas.setAttribute('width', w);
+            canvas.setAttribute('height', h);
+            var hexagon_w = 0.5 * w;
+            context.translate(hexagon_w * 0.5, 0);
+            context.moveTo(0, 0);
+            for (var j = 0; j < 6; j++) {
+                context.lineTo(hexagon_w, 0);
+                context.translate(hexagon_w * 1, 0);
+                context.rotate(Math.PI / 180 * 60);
+            }
+            context.clip();
+            context.translate(-(hexagon_w * 0.5), 0);
+            context.scale(1.1, 1.4);
+            context.shadowColor = 'black';
+            context.fillStyle = 'black';
+            context.shadowBlur = 1;
+            context.shadowOffsetX = 10;
+            context.shadowOffsetY = 10;
+            context.drawImage(image, 0, 0, w, w * image.height / image.width);
+
+
+        }
+    }
+    var siwper = new Swiper('.fullPage', {
+        direction: 'vertical',
+        mousewheelControl: true,
+        pagination: '.swiper-pagination',
+        onInit: function (swiper) {
+            swiperAnimateCache(swiper); //隐藏动画元素 
+            swiperAnimate(swiper); //初始化完成开始动画
+        },
+        onSlideChangeEnd: function (swiper) {
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        }
+    })
+</script>
+
+</html>
