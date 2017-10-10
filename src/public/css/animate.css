@@ -1462,6 +1462,7 @@
   from {
     transform: translate3d(0, -100%, 0);
     visibility: visible;
+    
   }
 
   to {
@@ -1507,6 +1508,7 @@
   from {
     transform: translate3d(0, 100%, 0);
     visibility: visible;
+    display: 'flex';
   }
 
   to {
@@ -1525,6 +1527,7 @@
 
   to {
     visibility: hidden;
+    display: none;
     transform: translate3d(0, 100%, 0);
   }
 }

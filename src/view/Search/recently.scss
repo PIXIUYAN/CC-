@@ -1,0 +1,54 @@
+.recently-search {
+    padding: 15px;
+    padding-bottom: 50px;
+    & .item-label {
+        color: lightgray;
+        font-size: 18px;
+        font-family: '楷书';
+    }
+    & .item-list {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+        flex-direction: column;
+        & .item {
+            border-bottom: 1px solid RGBA(242, 242, 242, 1);
+            font-size: 12px;
+            height: 40px;
+            color:RGBA(53, 53, 53, 1);
+            padding: 2px;
+            vertical-align: bottom;
+            display: flex;
+            align-items: center;
+            
+            & svg{
+                vertical-align: top;
+                height: 16px;
+                width: 16px;
+            }
+
+            & span{
+                margin-left: 5px;
+            }
+
+        }
+    }
+
+    & .clear{
+        height: 44px;
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: RGBA(154, 154, 154, 1);
+       font-family: '楷书';
+        & .svg-icon,
+        & svg{
+             
+            fill: RGBA(154, 154, 154, 1);
+            height: 20px;
+        }
+    }
+}

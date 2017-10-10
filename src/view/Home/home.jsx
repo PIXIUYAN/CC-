@@ -1,27 +1,55 @@
-
-
-
 import React from 'react'
-
-
 import ManChannel from './manChannel'
+import GirlChannel from './girlChannel'
+import {NavLink, Route} from 'react-router-dom'
 
-class Home extends React.Component{
+import Banner from './banner.js'
+import Search from '../../public/images/search.svg'
+import HotTop from './hotTop'
+import API from '../../api/api'
 
-    constructor(props){
+class Home extends React.Component {
+
+    constructor(props) {
         super(props)
+        this.init()
     }
+    init() {
 
-    render(){
-        
+        var a = []
+
+        this.state = ({bookList: []})
+
+        fetch('/api/ranking/54d42d92321052167dfb75e3?start=0&&limit=30')
+            .then(response => response.json())
+            .then(data => {
+
+                var books = data['ranking']['books'].slice(0, 30)
+                books[2] = data['ranking']['books'][31]
+                console.log('data', books)
+                this.setState({bookList: books})
+            })
+    }
+    componentDidMount() {
+        var swiper = new Swiper('.home-banner', {
+            autoplay: 2000,
+            loop: true,
+            pagination: '.swiper-pagination'
+        })
+
+    }
+    render() {
         return (
-            <div>
-              <ManChannel/>  
+            <div style={{
+                paddingBottom: "15vw"
+            }}>
+                <Banner/>
+                <ManChannel/>
+                <HotTop books={this.state.bookList}/>
             </div>
         )
     }
 
 }
-
 
 export default Home;

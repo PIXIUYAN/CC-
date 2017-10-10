@@ -1,0 +1,11 @@
+.book-list {
+    height: 100vh;
+    & .swiper-wrapper{
+        height: auto;
+        display: block;
+    }
+    & a{
+        display: block;
+    }
+    
+}

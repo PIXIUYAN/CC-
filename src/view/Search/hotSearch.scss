@@ -1,0 +1,25 @@
+
+.hot-search {
+    padding: 15px;
+    & .item-label {
+        color: lightgray;
+        font-size: 18px;
+        font-family: '楷书';
+    }
+    & .item-list {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+        & .item {
+            background:RGBA(242, 242, 242, 1);
+            font-size: 12px;
+            margin: 8px;
+            line-height: 1.6em;
+            border-radius: 5px;
+            padding:3px  12px; 
+           color:RGBA(53, 53, 53, 1);
+        }
+    }
+}

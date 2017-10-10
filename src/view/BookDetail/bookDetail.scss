@@ -1,0 +1,114 @@
+.book-detail {
+    background: #F5F7F9;
+    &>.img-box {
+        text-align: center;
+        background: white;
+        padding: 10px;
+        &>img {
+            border: 1px solid #337ab7;
+            padding: 4px;
+            height: 140px;
+            width: 100px;
+            border-radius: 5px;
+        }
+    }
+    &>header {
+        background: #222222;
+        &>h2 {
+            color: white;
+            text-align: center;
+            font-size: 25px;
+            line-height: 2em;
+        }
+    }
+    & .author {
+        text-align: center;
+        font-size: 13px;
+        color: #262a30;
+        font-weight: 900;
+    }
+    &>.longInfo {
+        box-sizing: border-box;
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 12px;
+        text-indent: 2em;
+        color: #555555;
+        background: white;
+        overflow: hidden;
+        &>p {
+            padding: 8px 20px;
+            text-align: justify;
+            border-bottom: #EEEEEE 1px solid;
+        }
+        &>span {
+            font-size: 15px;
+            color: #4D8CF5;
+            font-weight: 900;
+            font-family: '楷书'
+        }
+        & .last-chapter,
+        & .word-count {
+            text-align: left;
+            height: 20px;
+            line-height: 20px;
+        }
+        & .last-chapter {
+            color: #262a30;
+            font-family: '思源黑体';
+            float: right;
+            
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 60vw;
+            &>span {
+                color: #DD5044;
+                font-family: '楷书';
+            }
+        }
+        & .word-count {
+            width: 30vw;
+            overflow: hidden;
+            float: left;
+            &>span {
+                vertical-align: middle;
+                font-family: '楷书';
+                color: #1DA76F;
+                &:nth-child(2) {
+                    font-size: 15px;
+                    color: #262a30;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+    &>.tags {
+        margin-top: 20px;
+        padding: 10px;
+        background: white;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        &>span {
+            margin: 5px;
+            border: 1px solid #DD4F43;
+            font-size: 12px;
+            padding: 2px 10px;
+            border-radius: 4px;
+            color: #DD4F43;
+        }
+    }
+    & .read {
+        display: block;
+        height: 40px;
+        color: white;
+        font-family: '楷书';
+        font-weight: 900;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+        background: #4D8BF5;
+    }
+}

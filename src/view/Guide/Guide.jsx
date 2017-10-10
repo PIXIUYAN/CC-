@@ -149,7 +149,7 @@ class Guide extends React.Component {
                 context.scale(1.1, 1.6);
                 context.drawImage(image, 0, 0, w, w * image.height / image.width);
             }
-
+            
         }
         var siwper = new Swiper('.fullPage', {
             direction: 'vertical',

@@ -1,0 +1,36 @@
+.book-rack {
+    min-height: 100vh;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+    padding-bottom: 100px;
+    background: RGBA(253, 253, 251, 1);
+    & .bookrack-cell {
+        position: relative;
+        height: 100px;
+        width: 100px;
+        padding-left: 20px;
+        margin-top: 50px;
+        & img {
+            height: 100px;
+            width: 80px;
+            box-shadow: -2px 0px 4px gray;
+        }
+        & h4 {
+            font-size: 14px;
+            font-weight: bold;
+            color: RGBA(61, 62, 64, 1);
+            position: absolute;
+            width: 80px;
+            line-height: 1.5em;
+            text-align: center; //多行文本溢出
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            vertical-align: top;
+        }
+    }
+}

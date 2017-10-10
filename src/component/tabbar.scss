@@ -1,0 +1,58 @@
+$activeColor:RGBA(255, 63, 0, 1);
+$defafault:RGBA(133, 133, 133, 1);
+.tab-bar {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    height: 44px;
+    box-shadow: -1px 0px 2px 1px black;
+    background: RGBA(253, 253, 253, 1);
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    &>a {
+        color: $defafault;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        background-position: center 5px;
+        background-size: 22px;
+        background-repeat: no-repeat;
+        position: relative;
+        text-align: center;
+    }
+    &>a.active{
+        color: RGBA(186, 170, 156, 1);
+    }
+    &>a.home {
+        background-image: url('/public/images/home.svg');
+       
+    }
+    &>a.home.active {
+        background-image: url('/public/images/home1.svg');
+       
+    }
+    & span {
+        display: block;
+        position: relative;
+        font-family: '楷书';
+        font-size: 12px;
+        top: 30px;
+    }
+
+    &>a.bookrack{
+        background-image: url('/public/images/bookrack.svg');
+    }
+    &>a.bookrack.active{
+        background-image: url('/public/images/bookrack1.svg');
+    }
+
+    &>a.magnifier{
+        background-size: 25px;
+        background-image: url('/public/images/magnifier.svg');
+    }
+    &>a.magnifier.active{
+        background-image: url('/public/images/magnifier1.svg');
+    }
+}

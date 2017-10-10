@@ -1,44 +1,83 @@
- .boy-channel-classification {
-     background-color: white;
-     padding: 30px 0px;
-     position: relative;
-     color: #586667;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-wrap: wrap;
-     & .type {
-         text-align: center;
-         border-right: 1px solid #ECF0F1;
-         border-bottom: 1px solid #ECF0F1;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         padding: 10px 0;
-         width: 25vw;
-         height: 25vw;
-         & .circle {
-            width: 10vw;
-            height: 10vw;
-             & svg {
-                 stroke: RGBA(121, 141, 141, 1);
-                 stroke-width: 2rem;
-                 fill: white;
-                 width: 10vw;
-                 height: 10vw;
-             }
-         }
-         &>h3 {
-              margin-top: 2px;
-             font-size: 13px;
-             font-weight: 500;
-             letter-spacing: 1px;
-             font-family: '楷书';
-         }
-     }
- }
+.home-banner {
+    height: 30vh;
+    & img {
+        height: 100%;
+        width: 100%;
+    }
+    & .swiper-pagination-bullet {
+        background-color: RGBA(255, 255, 255, .5);
+        opacity: 1;
+    }
+    & .swiper-pagination-bullet-active {
+        background-color: #586667;
+    }
+}
 
- .boy-channle-bottom .type {
-     border-bottom: none;
- }
+.boy-channel-classification {
+    background-color: white;
+    padding: 0px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    & .type {
+        text-align: center;
+        border-right: 1px solid #ECF0F1;
+        border-bottom: 1px solid #ECF0F1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        width: 25%;
+        height: 25vw;
+        & .circle {
+            color: #586667;
+            width: 20vw;
+            height: 20vw;
+            & svg {
+                stroke: RGBA(121, 141, 141, 1);
+                stroke-width: 20;
+                fill: white;
+                width: 10vw;
+                height: 10vw;
+            }
+        }
+        & .bar-item p {
+            margin-top: 2px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-family: '楷书';
+        }
+    }
+}
+
+.hot-recommend::before {
+    content: '';
+    float: left;
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    background: RGBA(190, 175, 160, 1);
+}
+
+.hot-recommend {
+    background: RGBA(240, 238, 226, 1);
+    color: RGBA(237, 65, 46, .8);
+    height: 40px;
+    line-height: 40px;
+    font-synthesis: 35px;
+    text-indent: 1em;
+    font-weight: bold;
+    font-family: '楷书'
+}
+
+.boy-channle-bottom .type {
+    border-bottom: none;
+}
+
+.boy-channle-bottom .type {
+    border-bottom: none;
+}
