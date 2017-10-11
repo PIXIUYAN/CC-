@@ -25,10 +25,9 @@ let server = new WebpackDevServer(compiler, {
     hot: true,
     inline: true,
     progress: true,
-    contentBase: path.join(__dirname, "src"),
-    host: '0.0.0.0'
+    contentBase: path.join(__dirname, "src")
 })
 
-server.listen(9000, 'localhost', (err) => {
-    console.log('监听9000成功')
+server.listen(80, ' 101.200.61.162', (err) => {
+    console.log('监听80成功')
 })
