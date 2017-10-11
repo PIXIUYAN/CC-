@@ -1,9 +1,8 @@
 const path = require('path');
-
 require('webpack-dev-server')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
-    entry: path.resolve(__dirname, './src/main.jsx'),
+    entry: './src/main.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './src/public/js')
@@ -68,3 +67,17 @@ module.exports = {
             template: path.resolve(__dirname, "./template.html")
         })]
 }
+
+// module.exports = {
+//     entry: './main.js',
+//     output: {
+//         filename: 'bundle.js',
+//         path: __dirname
+//     },
+//     devServer: {
+//         historyApiFallback: true,
+//         hot: true,
+//         inline: true,
+//         progress: true
+//     }
+// }

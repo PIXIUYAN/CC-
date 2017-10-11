@@ -46,12 +46,12 @@ import Bookrack from './view/Bookrack/Bookrack.jsx'
 import {BrowserRouter as Router, Link, Route, NavLink} from 'react-router-dom'
 
 var routes = <div>
-    <Route path='/home'>
+    <Route path='/'>
         <div>
-            <Route path='/home' component={TabBar}/>
-            <Route path='/home/home' component={Home}/>
-            <Route path='/home/bookrack' component={Bookrack}/>
-            <Route path='/home/search' component={Search}/>
+            <Route path='/' component={TabBar}/>
+            <Route path='/home' component={Home}/>
+            <Route path='/bookrack' component={Bookrack}/>
+            <Route path='/search' component={Search}/>
         </div>
     </Route>
     <Route path='/booklist' component={BookList}/>
