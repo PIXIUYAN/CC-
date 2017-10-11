@@ -8,30 +8,14 @@ module.exports = {
         path: path.resolve(__dirname, './src/public/js')
     },
     devtool: 'eval-source-map',
-    //enable dev server
-    devServer: {
-        proxy: {
-            '/api2': {
-                target: 'http://chapter2.zhuishushenqi.com/',
-                secure: false,
-                changeOrigin: true,
-                pathRewrite: {
-                    "^/api2": ""
-                }
-            },
-            "/api": {
-                target: "http://api.zhuishushenqi.com",
-                pathRewrite: {
-                    "^/api": ""
-                }
-            }
-        },
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        progress: true,
-        contentBase: path.join(__dirname, "src")
-    },
+    // enable dev server devServer: {     proxy: {         '/api2': {
+    // target: 'http://chapter2.zhuishushenqi.com/',             secure: false,
+    //        changeOrigin: true,             pathRewrite: {
+    // "^/api2": ""             }         },         "/api": {             target:
+    // "http://api.zhuishushenqi.com",             pathRewrite: {
+    // "^/api": ""             }         }     },     historyApiFallback: true,
+    // hot: true,     inline: true,     progress: true,     contentBase:
+    // path.join(__dirname, "src") },
     resolve: {
         extensions: ['.webpack.js', '.web.js', '.js', '.jsx', '.json']
     },
@@ -67,17 +51,3 @@ module.exports = {
             template: path.resolve(__dirname, "./template.html")
         })]
 }
-
-// module.exports = {
-//     entry: './main.js',
-//     output: {
-//         filename: 'bundle.js',
-//         path: __dirname
-//     },
-//     devServer: {
-//         historyApiFallback: true,
-//         hot: true,
-//         inline: true,
-//         progress: true
-//     }
-// }

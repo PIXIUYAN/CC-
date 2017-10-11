@@ -25,7 +25,8 @@ let server = new WebpackDevServer(compiler, {
     hot: true,
     inline: true,
     progress: true,
-    contentBase: path.join(__dirname, "src")
+    contentBase: path.join(__dirname, "src"),
+    host: '0.0.0.0'
 })
 
 server.listen(9000, 'localhost', (err) => {
