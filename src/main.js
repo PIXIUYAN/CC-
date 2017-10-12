@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import store from './store/createStore'
-import {Provider} from 'react-redux'
 import initReactFastclick from 'react-fastclick'
-import './public/js/swiper.min.js'
 import 'whatwg-fetch';
-require('core-js/fn/object/entries');
-
+import Bundle from './Bundle.jsx'
+import 'babel-polyfill';
+import './main.scss'
 // getQueryObject
 window.getQueryObject = function getQueryObject(url) {
     url = url == null
@@ -25,38 +23,81 @@ window.getQueryObject = function getQueryObject(url) {
     return obj;
 }
 
-console.log('entries', Object.entries)
 //  添加移动端点击
 initReactFastclick()
-//资源
-import './public/css/reset.css'
-import './public/css/animate.css'
-import "./public/css/swiper.min.css"
+// 资源 import './public/css/reset.css'; import './public/css/animate.css' import
+// "./public/css/swiper.min.css" 组件 import GuideContainer from
+// 'bundle-loader?lazy&name=app-[name]!./view/Guide/Guide.jsx'
+import HomeContainer from 'bundle-loader?lazy&name=app-[name]!./view/Home/home.jsx'
+import BookListContainer from 'bundle-loader?lazy&name=app-[name]!./view/BookList/bookList.jsx'
+import BookDetailContainer from 'bundle-loader?lazy&name=app-[name]!./view/BookDetail/bookDetail.jsx'
+import ChapterContentContainer from 'bundle-loader?lazy&name=app-[name]!./view/ChapterContent/chapterContent.jsx'
+import TabBarContainer from './component/tabBar.js'
+import SearchContainer from 'bundle-loader?lazy&name=app-[name]!./view/Search/search.jsx'
+import BookrackContainer from 'bundle-loader?lazy&name=app-[name]!./view/Bookrack/Bookrack.jsx'
 
-// 组件
-import Guide from './view/Guide/Guide.jsx'
-import Home from './view/Home/home.jsx'
-import BookList from './view/BookList/bookList.jsx'
-import BookDetail from './view/BookDetail/bookDetail.jsx'
-import ChapterContent from './view/ChapterContent/chapterContent.jsx'
-import TabBar from './component/tabBar'
-import Search from './view/Search/search.jsx'
-import Bookrack from './view/Bookrack/Bookrack.jsx'
+// Guide const Guide = () => (     <Bundle load={GuideContainer} laze>
+// {Component => <Component/>}     </Bundle> ) Home
+const Home = (props) => {
+    console.log('Home', arguments)
+    return <Bundle load={HomeContainer} {...props}>
+        {Component => <Component/>}
+    </Bundle>
+}
+
+//BookList
+
+const BookList = (props) => (
+    <Bundle load={BookListContainer}>
+        {Component => <Component {...props}/>}
+    </Bundle>
+)
+//  BookDetail
+const BookDetail = (props) => (
+    <Bundle load={BookDetailContainer}>
+        {Component => <Component {...props}/>}
+    </Bundle>
+)
+
+//  ChapterContent
+const ChapterContent = (props) => (
+    <Bundle load={ChapterContentContainer}>
+        {Component => <Component {...props}/>}
+    </Bundle>
+)
+//TabBar
+const TabBar = (props) => (
+    <Bundle load={TabBarContainer}>
+        {Component => <Component {...props}/>}
+    </Bundle>
+)
+//  Search
+const Search = (props) => (
+    <Bundle load={SearchContainer}>
+        {Component => <Component {...props}/>}
+    </Bundle>
+)
+//  Bookrack
+const Bookrack = (props) => (
+    <Bundle load={BookrackContainer}>
+        {Component => <Component {...props}/>}
+    </Bundle>
+)
 // 路由
 import {BrowserRouter as Router, Link, Route, NavLink} from 'react-router-dom'
 
 var routes = <div>
-    <Route path='/'>
+    <Route path='/main'>
         <div>
-            <Route path='/' component={TabBar}/>
-            <Route path='/home' component={Home}/>
-            <Route path='/bookrack' component={Bookrack}/>
-            <Route path='/search' component={Search}/>
+            <Route path='/main' component={TabBarContainer}/>
+            <Route path='/main/home' component={Home}/>
+            <Route path='/main/bookrack' component={Bookrack}/>
+            <Route path='/main/search' component={Search}/>
         </div>
     </Route>
-    <Route path='/booklist' component={BookList}/>
-    <Route path='/books/:bookid' component={BookDetail}/>
-    <Route path='/chapters/:bookid' component={ChapterContent}/>
+    <Route strict exact={true} path='/booklist' component={BookList}/>
+    <Route strict exact={true} path='/books/:bookid' component={BookDetail}/>
+    <Route stric texact={true} path='/chapters/:bookid' component={ChapterContent}/>
 </div>
 // app 程序入口
 class App extends React.Component {
@@ -65,13 +106,11 @@ class App extends React.Component {
     }
 
     render() {
-
         return (
-            <Provider store={store}>
-                <Router>
-                    {routes}
-                </Router>
-            </Provider>
+
+            <Router>
+                {routes}
+            </Router>
 
         )
     }

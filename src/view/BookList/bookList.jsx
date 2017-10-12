@@ -1,6 +1,6 @@
 import React from 'react'
 import './bookList.scss'
-import Cell from './bookCell';
+import BookCell from './bookCell.js';
 import {connect} from 'react-redux'
 import API from '../../api/api.js'
 import Loading from '../../component/loading'
@@ -134,7 +134,7 @@ class BookList extends React.Component {
                     <div className="swiper-slide">
                         {bookList
                             ? bookList.map((book, index) => {
-                                return <Cell key={'book-' + index} book={book}/>
+                                return <BookCell key={'book-' + index} book={book}/>
                             })
                             : ''
 }

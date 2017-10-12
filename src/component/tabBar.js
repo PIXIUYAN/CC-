@@ -5,15 +5,16 @@ import './tabbar.scss'
 import BarItem from './barItem'
 
 function tabBar() {
+    console.log(arguments)
     return (
         <div className='tab-bar'>
-            <NavLink to='/home' className='home' activeClassName=' active'>
+            <NavLink to='/main/home' className='home' activeClassName=' active'>
                 <span>首页</span>
             </NavLink>
-            <NavLink to='/bookrack' className='bookrack' activeClassName='active'>
+            <NavLink to='/main/bookrack' className='bookrack' activeClassName='active'>
                 <span>书架</span>
             </NavLink>
-            <NavLink to='/search' className='magnifier' activeClassName='active'>
+            <NavLink to='/main/search' className='magnifier' activeClassName='active'>
                 <span>搜索</span>
             </NavLink>
 

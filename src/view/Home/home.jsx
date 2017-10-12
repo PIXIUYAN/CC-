@@ -1,12 +1,12 @@
 import React from 'react'
-import ManChannel from './manChannel'
-import GirlChannel from './girlChannel'
+import ManChannel from './manChannel.js'
+
 import {NavLink, Route} from 'react-router-dom'
 
 import Banner from './banner.js'
 import Search from '../../public/images/search.svg'
-import HotTop from './hotTop'
-import API from '../../api/api'
+import HotTop from './hotTop.js'
+import API from '../../api/api.js'
 
 class Home extends React.Component {
 

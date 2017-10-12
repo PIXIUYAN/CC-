@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import "./Guide.scss"
 
@@ -111,17 +109,22 @@ var htmlStr = `
     </div>
 </div>`
 
-var imgSrcList = ['/public/images/金庸/鹿.png', '/public/images/金庸/雪.png',
-    '/public/images/金庸/连.png', '/public/images/金庸/素.png',
-    '/public/images/金庸/碧.png', '/public/images/金庸/越.png',
-    '/public/images/金庸/侠.png']
+var imgSrcList = [
+    '/public/images/金庸/鹿.png',
+    '/public/images/金庸/雪.png',
+    '/public/images/金庸/连.png',
+    '/public/images/金庸/素.png',
+    '/public/images/金庸/碧.png',
+    '/public/images/金庸/越.png',
+    '/public/images/金庸/侠.png'
+]
 
 class Guide extends React.Component {
     constructor(props) {
         super(props)
     }
 
-   componentDidMount() {
+    componentDidMount() {
         var homeEle = this.refs['home'];
         homeEle.innerHTML = htmlStr;
         var canvasList = document.querySelectorAll('.zl-img');
@@ -149,14 +152,14 @@ class Guide extends React.Component {
                 context.scale(1.1, 1.6);
                 context.drawImage(image, 0, 0, w, w * image.height / image.width);
             }
-            
+
         }
         var siwper = new Swiper('.fullPage', {
             direction: 'vertical',
             mousewheelControl: true,
             pagination: '.swiper-pagination',
             onInit: function (swiper) {
-                swiperAnimateCache(swiper); //隐藏动画元素 
+                swiperAnimateCache(swiper); //隐藏动画元素
                 swiperAnimate(swiper); //初始化完成开始动画
             },
             onSlideChangeEnd: function (swiper) {
@@ -167,15 +170,10 @@ class Guide extends React.Component {
 
     render() {
         return (
-            <div ref='home'>
-            </div>)
+            <div ref='home'></div>
+        )
     }
 
 }
-
-
-
-
-
 
 export default Guide;

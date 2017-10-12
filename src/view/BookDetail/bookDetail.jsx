@@ -11,6 +11,9 @@ class BookDetail extends React.Component {
     }
     init() {
         var {match} = this.props
+
+        console.log(this.props)
+
         var boookId = match.params.bookid
         this.state = {
             bookInfo: null
@@ -26,7 +29,7 @@ class BookDetail extends React.Component {
     componentDidMount() {}
     render() {
         var data = this.state.bookInfo
-        console.log("data", data)
+
         if (!data) {
             return <div></div>
         }

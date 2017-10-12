@@ -141,11 +141,12 @@ http://yuilibrary.com/license/
 
  #root {
      margin: 0 auto;
-     max-width: 500px;
  }
 
  a{
      text-decoration: none;
  }
-
-  
+ @font-face{
+    src: url('/public/font/kaishu.ttf');
+    font-family: '楷书'
+}
