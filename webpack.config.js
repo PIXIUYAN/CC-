@@ -31,7 +31,7 @@ module.exports = {
                 }
             }
         },
-        hot: true,
+        compress: true,
         inline: true,
         progress: true,
         contentBase: path.resolve(__dirname, "./src/")
