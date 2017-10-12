@@ -1,7 +1,7 @@
 import React from 'react'
 import './bookList.scss'
 import BookCell from './bookCell.js';
-import {connect} from 'react-redux'
+
 import API from '../../api/api.js'
 import Loading from '../../component/loading'
 import Store from '../../store/createStore'
