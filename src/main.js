@@ -87,9 +87,9 @@ const Bookrack = (props) => (
 import {BrowserRouter as Router, Link, Route, NavLink} from 'react-router-dom'
 
 var routes = <div>
-    <Route path='/'>
+    <Route path='/main'>
         <div>
-            <Route path='/' component={TabBarContainer}/>
+            <Route path='/main' component={TabBarContainer}/>
             <Route path='/main/home' component={Home}/>
             <Route path='/main/bookrack' component={Bookrack}/>
             <Route path='/main/search' component={Search}/>
@@ -103,7 +103,7 @@ var routes = <div>
 class App extends React.Component {
     constructor(props) {
         super(props)
-        console.log(1111111)
+
     }
 
     render() {
