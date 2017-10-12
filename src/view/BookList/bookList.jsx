@@ -4,7 +4,7 @@ import BookCell from './bookCell.js';
 
 import API from '../../api/api.js'
 import Loading from '../../component/loading'
-import Store from '../../store/createStore'
+
 class BookList extends React.Component {
     constructor(props) {
         super(props)
