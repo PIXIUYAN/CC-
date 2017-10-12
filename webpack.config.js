@@ -10,7 +10,7 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, './src/public/js'),
         chunkFilename: '[name].[id].js',
-        publicPath: 'http://localhost:8080/'
+        publicPath: '/public/js/'
     },
     devtool: 'eval-source-map',
     // enable dev server
