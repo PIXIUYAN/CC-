@@ -1,4 +1,5 @@
 const path = require('path');
+
 const FastUglifyJsPlugin = require('fast-uglifyjs-plugin');
 const webpack = require('webpack');
 module.exports = {
@@ -30,11 +31,10 @@ module.exports = {
                 }
             }
         },
-        historyApiFallback: true,
-        hot: false,
+        hot: true,
         inline: true,
         progress: true,
-        contentBase: path.join(__dirname, "src")
+        contentBase: path.resolve(__dirname, "./src/")
     },
     resolve: {
         extensions: ['.webpack.js', '.web.js', '.js', '.jsx', '.json']
@@ -69,13 +69,8 @@ module.exports = {
 
     plugins: [
         new webpack.DllReferencePlugin({context: __dirname, manifest: require('./src/public/js/vendor-mainfest.json')}),
-        new FastUglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            // debug设为true可输出详细缓存使用信息:
-            debug: true
-        })
+        // new FastUglifyJsPlugin({     compress: {         warnings: false     }, //
+        // debug设为true可输出详细缓存使用信息:     debug: true })
 
     ]
 }

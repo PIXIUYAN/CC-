@@ -87,22 +87,23 @@ const Bookrack = (props) => (
 import {BrowserRouter as Router, Link, Route, NavLink} from 'react-router-dom'
 
 var routes = <div>
-    <Route path='/main'>
+    <Route path='/'>
         <div>
-            <Route path='/main' component={TabBarContainer}/>
+            <Route path='/' component={TabBarContainer}/>
             <Route path='/main/home' component={Home}/>
             <Route path='/main/bookrack' component={Bookrack}/>
             <Route path='/main/search' component={Search}/>
         </div>
     </Route>
-    <Route strict exact={true} path='/booklist' component={BookList}/>
-    <Route strict exact={true} path='/books/:bookid' component={BookDetail}/>
-    <Route stric texact={true} path='/chapters/:bookid' component={ChapterContent}/>
+    <Route path='/booklist' component={BookList}/>
+    <Route path='/books/:bookid' component={BookDetail}/>
+    <Route path='/chapters/:bookid' component={ChapterContent}/>
 </div>
 // app 程序入口
 class App extends React.Component {
     constructor(props) {
         super(props)
+        console.log(1111111)
     }
 
     render() {
