@@ -301,7 +301,7 @@ class ChapterContent extends React.Component {
 
             {/* 顶部导航栏 */}
 
-            <header
+            {/* <header
                 className={this.state.showToobar
                 ? ' animated slideInDown'
                 : ' animated slideOutUp'}>
@@ -325,7 +325,7 @@ class ChapterContent extends React.Component {
                         : '加入书架'}
                 </div>
 
-            </header>
+            </header> */}
 
             {/* 小说正文 */}
 
