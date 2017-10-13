@@ -214,9 +214,7 @@ class ChapterContent extends React.Component {
             mousewheelControl: true,
             direction: 'vertical',
             freeMode: true,
-            onTap: () => {
-                this.handleToggleToolBar()
-            },
+
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 this.loadMore()
@@ -329,7 +327,10 @@ class ChapterContent extends React.Component {
 
             {/* 小说正文 */}
 
-            <div className='swiper-container ' id='swiper-chapter'>
+            <div
+                className='swiper-container '
+                id='swiper-chapter'
+                onClick={() => this.handleToggleToolBar()}>
                 <div className="swiper-wrapper">
                     <div className="swiper-slide">
                         {textEle}
@@ -425,7 +426,40 @@ class ChapterContent extends React.Component {
                     <HideSVG/>
                 </div>
             </div>
+            {/* 底部工具栏 */}
+            <footer
+                className={this.state.showToobar
+                ? 'tool-bar animated slideInUp'
+                : 'tool-bar animated slideOutDown'}>
+                {/* 设置 */}
+                <div>
+                    <BarItem svg={< SettingSVG />} label='设置'/>
 
+                </div>
+                {/* 夜间 */}
+                <div
+                    onClick
+                    ={() => {
+                    this.handleToggPattern()
+                }}>
+                    {this.state.nightPattern
+                        ? (
+                            <BarItem svg={< NightSVG />} label='夜间'/>
+                        )
+                        : (
+                            <BarItem svg={< DaySVG />} label='日间'/>
+                        )
+}
+
+                </div>
+                {/* 目录 */}
+                <div
+                    onClick={() => {
+                    this.handleToggleCatalog()
+                }}>
+                    <BarItem svg={< CatalogSVG />} label='目录'/>
+                </div>
+            </footer>
         </div>
 
     }
