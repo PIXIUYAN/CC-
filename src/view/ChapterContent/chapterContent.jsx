@@ -149,7 +149,6 @@ class ChapterContent extends React.Component {
 
     handleGetChapterContentAtIndex(chapterIndex) {
         if (this.state.chapterList.length > 0) {
-
             var link = this.state.chapterList[chapterIndex]['link']
             API
                 .fetchChaperContent(link)
@@ -248,7 +247,7 @@ class ChapterContent extends React.Component {
 
     handleSelectChapterAtIndex(index) {
         return () => {
-            location.hash = 'chapter' + index
+
             this.resetContentList()
             this.handleGetChapterContentAtIndex(index)
             this.setState({chapterIndex: index})
