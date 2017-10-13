@@ -150,3 +150,7 @@ http://yuilibrary.com/license/
     src: url('/public/font/kaishu.ttf');
     font-family: '楷书'
 }
+*{
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+}
