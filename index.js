@@ -28,6 +28,7 @@ let server = new WebpackDevServer(compiler, {
     progress: true,
     contentBase: path.join(__dirname, "src")
 })
+
 server.listen(8080, '127.0.0.1', (err) => {
     console.log('监听8080成功')
 })
