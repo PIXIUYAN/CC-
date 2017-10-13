@@ -301,7 +301,7 @@ class ChapterContent extends React.Component {
 
             {/* 顶部导航栏 */}
 
-            {/* <header
+            <header
                 className={this.state.showToobar
                 ? ' animated slideInDown'
                 : ' animated slideOutUp'}>
@@ -325,7 +325,7 @@ class ChapterContent extends React.Component {
                         : '加入书架'}
                 </div>
 
-            </header> */}
+            </header>
 
             {/* 小说正文 */}
 
@@ -425,40 +425,7 @@ class ChapterContent extends React.Component {
                     <HideSVG/>
                 </div>
             </div>
-            {/* 底部工具栏 */}
-            <footer
-                className={this.state.showToobar
-                ? 'tool-bar animated slideInUp'
-                : 'tool-bar animated slideOutDown'}>
-                {/* 设置 */}
-                <div>
-                    <BarItem svg={< SettingSVG />} label='设置'/>
 
-                </div>
-                {/* 夜间 */}
-                <div
-                    onClick
-                    ={() => {
-                    this.handleToggPattern()
-                }}>
-                    {this.state.nightPattern
-                        ? (
-                            <BarItem svg={< NightSVG />} label='夜间'/>
-                        )
-                        : (
-                            <BarItem svg={< DaySVG />} label='日间'/>
-                        )
-}
-
-                </div>
-                {/* 目录 */}
-                <div
-                    onClick={() => {
-                    this.handleToggleCatalog()
-                }}>
-                    <BarItem svg={< CatalogSVG />} label='目录'/>
-                </div>
-            </footer>
         </div>
 
     }

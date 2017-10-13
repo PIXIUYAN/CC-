@@ -44,6 +44,10 @@
     & .swiper-wrapper {
         height: auto;
         display: block;
+
+        & .swiper-slider{
+            -webkit-tap-highlight-color: none;
+        }
     } // 小说正文
     & .text-body {
         &>h1 {
