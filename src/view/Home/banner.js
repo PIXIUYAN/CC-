@@ -5,7 +5,7 @@ function Banner() {
         <div className="swiper-container home-banner">
             <div className="swiper-wrapper">
                 <div className="swiper-slide">
-                    <Link to='/books/5086612fd7a545903b000021'>
+                    <Link to='/books/5903487de668d5777f2b93bd'>
                         <img
                             src="https://qidian.qpic.cn/qidian_common/349573/9003484ca83101d4d29481d05112593d/0"
                             alt=""/>
