@@ -29,12 +29,6 @@ class BookList extends React.Component {
     endLoading() {
         this.setState({isLoading: false})
     }
-    getQueryParam() {
-        var {location} = this.props;
-        var json = decodeURIComponent(location.search.slice(1));
-        var jsonObj = JSON.parse(json);
-        return jsonObj.query
-    }
 
     componentDidUpdate() {
 

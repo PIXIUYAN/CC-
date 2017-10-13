@@ -84,7 +84,7 @@ const Bookrack = (props) => (
     </Bundle>
 )
 // 路由
-import {BrowserRouter as Router, Link, Route, NavLink} from 'react-router-dom'
+import {HashRouter as Router, Link, Route, NavLink} from 'react-router-dom'
 
 var routes = <div>
     <Route path='/main'>
