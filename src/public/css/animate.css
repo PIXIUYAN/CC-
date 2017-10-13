@@ -1461,7 +1461,7 @@
 @keyframes slideInDown {
   from {
     transform: translate3d(0, -100%, 0);
-    
+    visibility: visible;
     
   }
 
@@ -1507,6 +1507,7 @@
 @keyframes slideInUp {
   from {
     transform: translate3d(0, 100%, 0);
+    visibility: visible;
     display: 'flex';
   }
 
@@ -1525,6 +1526,8 @@
   }
 
   to {
+    visibility: hidden;
+    display: none;
     transform: translate3d(0, 100%, 0);
   }
 }
@@ -1539,7 +1542,7 @@
   }
 
   to {
-   
+    visibility: hidden;
     transform: translate3d(-100%, 0, 0);
   }
 }
@@ -1569,7 +1572,7 @@
   }
 
   to {
-    
+    visibility: hidden;
     transform: translate3d(0, -100%, 0);
   }
 }

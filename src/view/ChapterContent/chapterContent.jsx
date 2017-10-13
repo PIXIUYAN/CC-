@@ -214,7 +214,9 @@ class ChapterContent extends React.Component {
             mousewheelControl: true,
             direction: 'vertical',
             freeMode: true,
-
+            onTap: () => {
+                this.handleToggleToolBar()
+            },
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 this.loadMore()
@@ -300,9 +302,11 @@ class ChapterContent extends React.Component {
             {/* 顶部导航栏 */}
 
             <header
-                className={this.state.showToobar
-                ? ' animated slideInDown'
-                : ' animated slideOutUp'}>
+                style={{
+                transform: this.state.showToobar
+                    ? "translateY(0%)"
+                    : "translateY(-100%)"
+            }}>
                 <div
                     className="back"
                     onClick={() => {
@@ -327,10 +331,7 @@ class ChapterContent extends React.Component {
 
             {/* 小说正文 */}
 
-            <div
-                className='swiper-container '
-                id='swiper-chapter'
-                onClick={() => this.handleToggleToolBar()}>
+            <div className='swiper-container ' id='swiper-chapter'>
                 <div className="swiper-wrapper">
                     <div className="swiper-slide">
                         {textEle}
@@ -428,9 +429,11 @@ class ChapterContent extends React.Component {
             </div>
             {/* 底部工具栏 */}
             <footer
-                className={this.state.showToobar
-                ? 'tool-bar animated slideInUp'
-                : 'tool-bar animated slideOutDown'}>
+                style={{
+                transform: this.state.showToobar
+                    ? "translateY(0%)"
+                    : "translateY(100%)"
+            }}>
                 {/* 设置 */}
                 <div>
                     <BarItem svg={< SettingSVG />} label='设置'/>

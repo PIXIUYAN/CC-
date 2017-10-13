@@ -1,8 +1,9 @@
 .chapter-content {
     position: relative;
+    height: 100vh;
     & header {
-        animation-duration: .2s;
-        position: absolute;
+        transition:.2s all ease-in;
+        position: fixed;
         height: 44px;
         background: RGBA(253, 253, 253, 1);
         width: 100vw;
@@ -173,10 +174,10 @@
     } 
     
     // 工具栏
-    & footer.tool-bar {
-        animation-duration: .2s;
+    & footer {
+        transition:.2s all ease-in;
         width: 100vw;
-        position: absolute;
+        position: fixed;
         bottom: -1px;
         z-index: 10;
         height: 44px;
