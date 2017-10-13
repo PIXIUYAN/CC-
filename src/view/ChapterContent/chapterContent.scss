@@ -2,7 +2,7 @@
     position: relative;
     & header {
         animation-duration: .2s;
-        position: fixed;
+        position: absolute;
         height: 44px;
         background: RGBA(253, 253, 253, 1);
         width: 100vw;
@@ -176,7 +176,7 @@
     & footer.tool-bar {
         animation-duration: .2s;
         width: 100vw;
-        position: fixed;
+        position: absolute;
         bottom: -1px;
         z-index: 10;
         height: 44px;
