@@ -72,7 +72,7 @@ class BookList extends React.Component {
         this.startLoading()
         var {location} = this.props;
         var searchParams = window.getQueryObject(location.search)
-        console.log('searchParams', searchParams)
+
         if (searchParams['query']) 
             return API.fetchBookList(searchParams['query'], starIndex).then(data => {
                 console.log('data', data)
@@ -137,7 +137,10 @@ class BookList extends React.Component {
                             .history
                             .goBack()
                     }}/>
-                    <p>玄幻</p>
+                    <p>
+                        {window.getQueryObject(this.props.location.search)['major'] || '热门搜索'
+}
+                    </p>
                 </header>
                 <div className='book-list swiper-container'>
                     <div className="swiper-wrapper">
