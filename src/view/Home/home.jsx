@@ -15,21 +15,18 @@ class Home extends React.Component {
         this.init()
     }
     init() {
-
         var a = []
-
         this.state = ({bookList: []})
-
         fetch('/api/ranking/54d42d92321052167dfb75e3?start=0&&limit=30')
             .then(response => response.json())
             .then(data => {
-
                 var books = data['ranking']['books'].slice(0, 30)
                 books[2] = data['ranking']['books'][31]
                 console.log('data', books)
                 this.setState({bookList: books})
             })
     }
+
     componentDidMount() {
         var swiper = new Swiper('.home-banner', {
             autoplay: 2000,
@@ -40,9 +37,7 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <div style={{
-                paddingBottom: "15vw"
-            }}>
+            <div className='home-page'>
                 <Banner/>
                 <ManChannel/>
                 <HotTop books={this.state.bookList}/>

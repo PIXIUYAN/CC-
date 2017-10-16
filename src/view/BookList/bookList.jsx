@@ -4,7 +4,7 @@ import BookCell from './bookCell.js';
 
 import API from '../../api/api.js'
 import Loading from '../../component/loading'
-
+import BackSVG from '../../public/images/back2.svg'
 class BookList extends React.Component {
     constructor(props) {
         super(props)
@@ -47,7 +47,11 @@ class BookList extends React.Component {
             slidesPerView: "auto",
             mousewheelControl: true,
             direction: 'vertical',
+            touchRatio: 0.5,
             freeMode: true,
+            preventClicks: true,
+            preventLinksPropagation: true,
+            shortSwipes: false,
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 if (this.state.loading == false) 
@@ -90,6 +94,7 @@ class BookList extends React.Component {
             return API.fetchListAtMajor(searchParams['major'], starIndex).then(data => {
                 this.endLoading()
                 if (data.books.length > 0) {
+
                     var books = data
                         .books
                         .map((book, index) => {
@@ -123,24 +128,39 @@ class BookList extends React.Component {
         var bookList = this.state.bookList
 
         return (
-            <div className='book-list swiper-container'>
-                <div className="swiper-wrapper">
-                    <div className="swiper-slide">
+            <div className='page'>
+                <header>
+                    <BackSVG
+                        onClick={() => {
+                        this
+                            .props
+                            .history
+                            .goBack()
+                    }}/>
+                    <p>玄幻</p>
+                </header>
+                <div className='book-list swiper-container'>
+                    <div className="swiper-wrapper">
                         {bookList
                             ? bookList.map((book, index) => {
-                                return <BookCell key={'book-' + index} book={book}/>
+                                return <div className="swiper-slide" key={'book-' + index}>
+                                    <BookCell book={book}/>
+                                </div>
                             })
                             : ''
 }
-                    </div>
-                    <div className="swiper-slide">
-                        {this.state.isLoadAll
-                            ? (<Loading show={false} label='----我也是有底线的----'/>)
-                            : (<Loading show={true} label='火速加载中'/>)
+
+                        <div className="swiper-slide">
+                            {this.state.isLoadAll
+                                ? (<Loading show={false} label='----我也是有底线的----'/>)
+                                : (<Loading show={true} label='火速加载中'/>)
 }
+                        </div>
+
                     </div>
 
                 </div>
+
             </div>
 
         )

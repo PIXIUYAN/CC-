@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 import './bookCell.scss'
 export default function ({book}) {
     return (
-        <Link to={`/books/${book['_id']}`}>
-            <section className='book-cell'>
+        <Link to={`/books?bookid=${book['_id']}`}>
+            <div className='book-cell'>
                 <div className="img-box">
                     <img src={decodeURIComponent(book.cover.split('/agent/')[1])} alt=""/>
                 </div>
@@ -24,8 +24,7 @@ export default function ({book}) {
                     </div>
 
                 </div>
-
-            </section>
+            </div>
         </Link>
 
     )

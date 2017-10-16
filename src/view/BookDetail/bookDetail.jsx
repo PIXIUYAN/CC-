@@ -2,6 +2,7 @@ import React from 'react'
 import './bookDetail.scss'
 import API from '../../api/api'
 import {Link} from 'react-router-dom'
+import BackSVG from '../../public/images/back2.svg'
 class BookDetail extends React.Component {
     constructor(props) {
         super(props)
@@ -9,17 +10,14 @@ class BookDetail extends React.Component {
 
     }
     init() {
-        var {match} = this.props
-
-        console.log(this.props)
-
-        var boookId = match.params.bookid
+        var {location} = this.props
+        var bookid = window.getQueryObject(location.search)['bookid']
         this.state = {
             bookInfo: null
         }
 
         API
-            .fetchBookInfo(boookId)
+            .fetchBookInfo(bookid)
             .then(data => {
                 this.setState({bookInfo: data})
             })
@@ -34,6 +32,13 @@ class BookDetail extends React.Component {
         }
         return <div className='book-detail'>
             <header>
+                <BackSVG
+                    onClick={() => {
+                    this
+                        .props
+                        .history
+                        .goBack()
+                }}/>
                 <h2>
                     {data.title}
                 </h2>
@@ -66,7 +71,7 @@ class BookDetail extends React.Component {
             </div>
             <Link
                 className="read"
-                to={'/chapters/' + data['_id'] + '?bookname=' + data.title + '&&cover=' + decodeURIComponent(data.cover.split('/agent/')[1])}>
+                to={'/chapters?bookid=' + data['_id'] + '&&bookname=' + data.title + '&&cover=' + decodeURIComponent(data.cover.split('/agent/')[1])}>
                 开始阅读
             </Link>
             <div className="tags">

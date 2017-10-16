@@ -33,7 +33,7 @@ class Bundle extends React.Component {
     }
 
     render() {
-        console.log(this.props)
+        console.log("this.props", this.props)
         // if state mode not undefined,The container will render children
         return this.state.mod
             ? this

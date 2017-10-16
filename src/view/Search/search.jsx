@@ -42,11 +42,11 @@ class Search extends React.Component {
     handleClear() {
         store.remove('history-search')
         this.setState({historySearch: null})
-        console.log('handleClear')
+
     }
 
     handleSubmit(e) {
-
+        console.log(this.props)
         var {history} = this.props;
 
         e.preventDefault();
@@ -67,14 +67,13 @@ class Search extends React.Component {
 
         store.set('history-search', historySearch)
         this.setState({historySearch: historySearch})
-        history.push(`/booklist?query=${query}`, null)
+        history.push(`/booklist?query=${query}`, {showIndex: 2})
 
     }
 
     render() {
         return <div className="search-page">
             <SearchBar handleSubmit={this.handleSubmit}/> {/* 热词搜索 */}
-
             <HotSearch hotWords={this.state.hotWords}/> {/* 历史记录 */}
             <RecentlySearch
                 historySearch={store.get('history-search')}

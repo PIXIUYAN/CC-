@@ -2,7 +2,7 @@
     position: relative;
     height: 100vh;
     & header {
-        transition:.2s all ease-in;
+        transition: .2s all ease-in;
         position: fixed;
         height: 44px;
         background: RGBA(253, 253, 253, 1);
@@ -11,13 +11,15 @@
         box-shadow: 0px 0px 1px gray;
         overflow: hidden;
         & .back {
-            float: left;
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 44px;
             height: 44px;
             display: flex;
             justify-content: center;
             align-items: center;
-            & svg{
+            & svg {
                 width: 25px;
                 height: 25px;
                 vertical-align: top;
@@ -45,8 +47,7 @@
     & .swiper-wrapper {
         height: auto;
         display: block;
-
-        & .swiper-slider{
+        & .swiper-slider {
             -webkit-tap-highlight-color: none;
         }
     } // 小说正文
@@ -71,27 +72,24 @@
     & .text-body.night {
         color: white;
         background: #2C313A;
-    } 
-
-     //折叠目录
-     & .hide-directory{
+    } //折叠目录
+    & .hide-directory {
         position: fixed;
         top: 50vh;
         left: 320px;
         z-index: 100px;
         height: 70px;
         width: 70px;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         background: RGBA(44, 49, 58, .5);
         border-radius: 100%;
         display: flex;
         padding: 10px;
         align-items: center;
-        & svg{
-           fill: white;
+        & svg {
+            fill: white;
         }
-    } 
-    // 目录
+    } // 目录
     & .novel-directory {
         animation-duration: 0.3s;
         animation-timing-function: ease-in;
@@ -100,7 +98,6 @@
         width: 100vw;
         background: RGBA(255, 255, 255, 1);
         overflow: auto;
-         
         & .sticky {
             background: white;
             position: sticky;
@@ -143,10 +140,10 @@
                 border-radius: 10px;
             }
         }
-        & .someone-chapter-box{
+        & .someone-chapter-box {
             display: flex;
             flex-direction: column;
-            &.reverse{
+            &.reverse {
                 flex-direction: column-reverse;
             }
             & .someone-chapter {
@@ -162,20 +159,14 @@
                 overflow: hidden;
                 white-space: nowrap;
                 text-align: justify;
-                &.active{
+                &.active {
                     color: RGBA(222, 81, 69, 1);
                 }
             }
         }
-       
-
-        
-
-    } 
-    
-    // 工具栏
+    } // 工具栏
     & footer {
-        transition:.2s all ease-in;
+        transition: .2s all ease-in;
         width: 100vw;
         position: fixed;
         bottom: -1px;
@@ -200,7 +191,41 @@
         & svg,
         & .svg-icon {
             height: 25px;
-            fill:RGBA(95, 95, 95, 1);
+            fill: RGBA(95, 95, 95, 1);
+        }
+        & .setting-body {
+            position: absolute;
+            width: 100vw;
+            height: 40px;
+            background: RGBA(253, 253, 253, 1);
+            border-bottom: 1px solid RGBA(160, 160, 160, 1);
+            border-top: 1px solid RGBA(160, 160, 160, 1);
+            top: 0;
+            left: 0;
+            transform: translateY(-100%);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            &>i {
+                text-align: center;
+                flex: 1;
+                height: 40px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                &:nth-child(2){
+                    & svg{
+                        height: 40px;
+                        width: 40px;
+                    }
+                }
+                &>svg {
+                    height: 25px;
+                    width: 25px;
+                    fill: RGBA(77, 140, 245, 1);
+                }
+              
+            }
         }
     }
 }

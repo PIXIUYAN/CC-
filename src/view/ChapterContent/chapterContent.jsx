@@ -12,7 +12,9 @@ import DaySVG from '../../public/images/日间.svg'
 import NightSVG from '../../public/images/夜间.svg'
 import CatalogSVG from '../../public/images/目录.svg'
 import HideSVG from './../../public/images/back2.svg'
-
+import SubSVG from '../../public/images/sub.svg'
+import AddSVG from '../../public/images/add.svg'
+import FontSVG from '../../public/images/font.svg'
 var store = require('store')
 // ChapterContent
 class ChapterContent extends React.Component {
@@ -21,8 +23,8 @@ class ChapterContent extends React.Component {
         this.init()
     }
     init() {
-        var {match, location} = this.props
-        var bookid = match.params.bookid
+        var {location} = this.props
+        var bookid = window.getQueryObject(location.search)['bookid']
         var bookname = window.getQueryObject(location.search)['bookname']
 
         var bookrack = store.get('bookrack') || {}
@@ -47,15 +49,17 @@ class ChapterContent extends React.Component {
             nightPattern: false,
             ascending: true,
             ConstChapterList: [],
-            hadCollection: hadCollection
+            hadCollection: hadCollection,
+            showSetting: false
         }
 
     }
 
     //  加入书架
     handleCollectionTheBook() {
-        var {match, location} = this.props
-        var bookid = match.params.bookid
+        var {location} = this.props
+        var bookid = window.getQueryObject(location.search)['bookid']
+
         var searchParmas = window.getQueryObject(location.search)
         var bookname = searchParmas['bookname']
         var cover = searchParmas['cover']
@@ -71,8 +75,9 @@ class ChapterContent extends React.Component {
     }
     // 从书架中删除
     handleDeleteTheBook() {
-        var {match, location} = this.props
-        var bookid = match.params.bookid
+        var {location} = this.props
+        var bookid = window.getQueryObject(location.search)['bookid']
+
         var bookname = getQueryObject(location.search)['bookname']
         var bookrack = store.get('bookrack') || {}
         delete bookrack[bookid]
@@ -153,6 +158,7 @@ class ChapterContent extends React.Component {
             API
                 .fetchChaperContent(link)
                 .then(data => {
+                    data['chapter'].title = this.state.chapterList[chapterIndex]['title']
                     this.updateContentList(data)
                 })
         }
@@ -175,8 +181,8 @@ class ChapterContent extends React.Component {
 
     componentDidMount() {
 
-        var {match} = this.props
-        var bookid = match.params.bookid
+        var {location} = this.props
+        var bookid = window.getQueryObject(location.search)['bookid']
 
         // 网路请求
         API
@@ -215,6 +221,7 @@ class ChapterContent extends React.Component {
             freeMode: true,
             onTap: () => {
                 this.handleToggleToolBar()
+                this.setState({showSetting: false})
             },
             onReachEnd: (swiper) => {
                 // 加载更多数据
@@ -261,8 +268,9 @@ class ChapterContent extends React.Component {
 
         // 上次阅读记录
         if (this.state.hadCollection) {
-            var {match} = this.props
-            var bookid = match.params.bookid
+            var {location} = this.props
+            var bookid = window.getQueryObject(location.search)['bookid']
+
             var bookrack = store.get('bookrack')
             bookrack[bookid].historyChapterIndex = chapterIndex
             store.set('bookrack', bookrack)
@@ -434,9 +442,42 @@ class ChapterContent extends React.Component {
                     : "translateY(100%)"
             }}>
                 {/* 设置 */}
-                <div>
+                <div
+                    onClick={() => {
+                    this.setState({
+                        showSetting: !this.state.showSetting
+                    })
+                }}>
                     <BarItem svg={< SettingSVG />} label='设置'/>
-
+                    <div
+                        className='setting-body'
+                        style={{
+                        display: this.state.showSetting
+                            ? 'flex'
+                            : 'none'
+                    }}>
+                        <AddSVG
+                            onClick={() => {
+                            document
+                                .querySelector('.text-body ')
+                                .style
+                                .fontSize = '20px'
+                        }}/>
+                        <FontSVG
+                            onClick={() => {
+                            document
+                                .querySelector('.text-body ')
+                                .style
+                                .fontSize = '16px'
+                        }}/>
+                        <SubSVG
+                            onClick={() => {
+                            document
+                                .querySelector('.text-body ')
+                                .style
+                                .fontSize = '12px'
+                        }}/>
+                    </div>
                 </div>
                 {/* 夜间 */}
                 <div

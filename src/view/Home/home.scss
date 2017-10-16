@@ -11,6 +11,10 @@
     & .swiper-pagination-bullet-active {
         background-color: #586667;
     }
+    & a{
+        display: block;
+        height: 100%;
+    }
 }
 
 .boy-channel-classification {
@@ -80,4 +84,12 @@
 
 .boy-channle-bottom .type {
     border-bottom: none;
+}
+
+.home-page{
+    background: white;
+    height: 100vh;
+    padding-bottom: 14vw;
+    overflow-y: scroll;
+    width: 100vw;
 }

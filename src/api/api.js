@@ -26,7 +26,7 @@ function fetchChaperContent(chapterLink) {
 
     chapterLink = encodeURIComponent(chapterLink)
     var url = `/api2/chapter/${chapterLink}?k=2124b73d7e2e1945&t=1468223717`
-    
+
     return fetch(url).then(response => response.json())
 
 }
@@ -71,6 +71,7 @@ function fetchBookInfo(bookId) {
  */
 
 function fetchBookList(query, startIndex = 0) {
+    console.log("startIndex", startIndex)
     var url = `/api/book/fuzzy-search?query=${query}&&start=${startIndex}&&limit=20`
 
     return fetch(url).then(response => response.json())
@@ -96,8 +97,8 @@ function fetchBookList(query, startIndex = 0) {
 
  */
 
-function fetchListAtMajor(major) {
-    var url = `/api/book/by-categories?gender=male&type=hot&major=${major}&start=0&limit=20`
+function fetchListAtMajor(major, startIndex = 0) {
+    var url = `/api/book/by-categories?gender=male&type=hot&major=${major}&start=${startIndex}&limit=20`
     return fetch(url).then(response => response.json())
 
 }

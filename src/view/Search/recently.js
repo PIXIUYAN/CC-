@@ -15,7 +15,16 @@ function RecentlySearch({historySearch, handleClear}) {
                 <h4 className='item-label'>最近搜索</h4>
                 <div className='item-list'>
                     {historySearch.map((item, index) => {
-                        return <Link className='item' key={'recently-' + index} to={'/booklist?query=' + item}>
+                        return <Link
+                            className='item'
+                            key={'recently-' + index}
+                            to={{
+                            pathname: '/booklist',
+                            search: '?query' + item,
+                            state: {
+                                showIndex: 2
+                            }
+                        }}>
                             <HistorySVG/>
                             <span>{item}</span>
                         </Link>

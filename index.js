@@ -2,9 +2,9 @@ const webpack = require('webpack')
 const config = require('./webpack.config.js')
 const WebpackDevServer = require('webpack-dev-server')
 const path = require('path')
-let compiler = webpack(config)
+const compiler = webpack(config)
 
-let server = new WebpackDevServer(compiler, {
+const server = new WebpackDevServer(compiler, {
     proxy: {
         '/api2': {
             target: 'http://chapter2.zhuishushenqi.com/',

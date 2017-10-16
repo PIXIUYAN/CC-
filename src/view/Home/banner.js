@@ -5,15 +5,14 @@ function Banner() {
         <div className="swiper-container home-banner">
             <div className="swiper-wrapper">
                 <div className="swiper-slide">
-                    <Link to='/books/5903487de668d5777f2b93bd'>
+                    <Link to='/books?bookid=5903487de668d5777f2b93bd'>
                         <img
                             src="https://qidian.qpic.cn/qidian_common/349573/9003484ca83101d4d29481d05112593d/0"
                             alt=""/>
                     </Link>
-
                 </div>
                 <div className="swiper-slide">
-                    <Link to='/books/58e37ad3cf617bdd6faf8f65'>
+                    <Link to='/books?bookid=58e37ad3cf617bdd6faf8f65'>
                         <img
                             src="https://qidian.qpic.cn/qidian_common/349573/618f13c5fe50f74543e871c736e5aa04/0"
                             alt=""/>
@@ -21,7 +20,7 @@ function Banner() {
 
                 </div>
                 <div className="swiper-slide">
-                    <Link to='/books/58b5ddb77f4aaab27a9227a1'>
+                    <Link to='/books?bookid=58b5ddb77f4aaab27a9227a1'>
                         <img
                             src="https://qidian.qpic.cn/qidian_common/349573/b3d1286bf631867e8d783f0fae0287b9/0"
                             alt=""/>
