@@ -13,14 +13,13 @@ module.exports = {
         publicPath: '/public/js/'
     },
     devtool: 'eval-source-map',
-    // enable dev server devServer: {     proxy: {         '/api2': {
-    // target: 'http://chapter2.zhuishushenqi.com/',             secure: false,
-    //        changeOrigin: true,             pathRewrite: {
-    // "^/api2": ""             }         },         "/api": {             target:
-    // "http://api.zhuishushenqi.com",             pathRewrite: {
-    // "^/api": ""             }         }     },     compress: true,     inline:
-    // true,     progress: true,     contentBase: path.resolve(__dirname, "./src/")
-    // },
+    // enable dev server devServer: {     proxy: {         '/api2': { target:
+    // 'http://chapter2.zhuishushenqi.com/',             secure: false,
+    // changeOrigin: true,             pathRewrite: { "^/api2": ""             } },
+    //        "/api": {             target: "http://api.zhuishushenqi.com",
+    // pathRewrite: { "^/api": ""             }         }     }, compress: true,
+    // inline: true,     progress: true,     contentBase: path.resolve(__dirname,
+    // "./src/") },
     resolve: {
         extensions: ['.webpack.js', '.web.js', '.js', '.jsx', '.json']
     },
@@ -37,9 +36,9 @@ module.exports = {
                     }, {
                         loader: 'css-loader'
                     }, {
-                        loader: 'sass-loader'
-                    }, {
                         loader: 'postcss-loader'
+                    }, {
+                        loader: 'sass-loader'
                     }
                 ]
             }, {
