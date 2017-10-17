@@ -41,13 +41,16 @@ class BookList extends React.Component {
     componentDidMount() {
         var {location} = this.props;
         var searchParams = window.getQueryObject(location.search)
-        console.log(searchParams)
-
         var loadMore = this.LoadMoreFunctionActory()
         var swiper = new Swiper('.book-list', {
             slidesPerView: "auto",
+            mousewheelControl: true,
             direction: 'vertical',
             freeMode: true,
+
+            onTouchEnd: (s, e) => {
+                event.stopPropagation()
+            },
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 if (this.state.loading == false) 
@@ -148,7 +151,6 @@ class BookList extends React.Component {
                                 : ''
 }
                         </div>
-
                         <div className="swiper-slide">
                             {this.state.isLoadAll
                                 ? (<Loading show={false} label='----我也是有底线的----'/>)
