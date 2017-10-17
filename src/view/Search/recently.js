@@ -20,10 +20,7 @@ function RecentlySearch({historySearch, handleClear}) {
                             key={'recently-' + index}
                             to={{
                             pathname: '/booklist',
-                            search: '?query' + item,
-                            state: {
-                                showIndex: 2
-                            }
+                            search: '?query=' + encodeURIComponent(item)
                         }}>
                             <HistorySVG/>
                             <span>{item}</span>

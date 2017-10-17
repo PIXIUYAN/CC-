@@ -58,6 +58,7 @@ export default class TabBar extends React.Component {
                         <span>搜索</span>
                     </a>
                 </div>
+
                 {showComponet}
 
             </div>

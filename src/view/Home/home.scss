@@ -86,9 +86,8 @@
     border-bottom: none;
 }
 
-.home-page{
-    background: white;
-    padding-bottom: 14vw;
-    overflow-y: scroll;
-    width: 100vw;
-}
+ .home-page{
+    padding-bottom: 50px;
+    height: 100vh;
+    overflow: auto;
+ }

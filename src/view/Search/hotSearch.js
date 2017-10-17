@@ -23,12 +23,7 @@ function HotSearch() {
         <h4 className='item-label'>热门搜索</h4>
         <div className='item-list'>
             {hotWords.map((word, index) => {
-                return <Link
-                    to={{
-                    pathname: '/booklist',
-                    search: '?query=' + word
-                }}
-                    key={'word-' + index}>
+                return <Link to={'/booklist?query=' + encodeURIComponent(word)} key={'word-' + index}>
                     <div className='item'>
                         {word}
                     </div>

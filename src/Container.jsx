@@ -2,19 +2,11 @@ import React from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 export default class Container extends React.Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
 
     }
-    componentWillMount() {
-        document.body.style.margin = "0px";
-        // 这是防止页面被拖拽
-        document
-            .body
-            .addEventListener('touchmove', (ev) => {
-                ev.preventDefault();
-            });
-    }
+    componentWillMount() {}
     render() {
 
         for (var item of this.props.children) {

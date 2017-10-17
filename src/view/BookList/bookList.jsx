@@ -74,21 +74,22 @@ class BookList extends React.Component {
         var searchParams = window.getQueryObject(location.search)
 
         if (searchParams['query']) 
-            return API.fetchBookList(searchParams['query'], starIndex).then(data => {
-                console.log('data', data)
-                this.endLoading()
-                if (data.books.length > 0) {
-                    this.setState({
-                        bookList: [
-                            ...this.state.bookList,
-                            ...data.books
-                        ]
-                    })
-                }
+            console.log('query', searchParams['query'])
+        return API.fetchBookList(searchParams['query'], starIndex).then(data => {
+            console.log('data', data)
+            this.endLoading()
+            if (data.books.length > 0) {
+                this.setState({
+                    bookList: [
+                        ...this.state.bookList,
+                        ...data.books
+                    ]
+                })
+            }
 
-                if (data.books.length < 19 || (!data.books.length > 0)) 
-                    this.haveloadedAll()
-            })
+            if (data.books.length < 19 || (!data.books.length > 0)) 
+                this.haveloadedAll()
+        })
 
         if (searchParams['major']) 
             return API.fetchListAtMajor(searchParams['major'], starIndex).then(data => {

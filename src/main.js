@@ -6,7 +6,7 @@ import 'whatwg-fetch';
 import 'babel-polyfill';
 import './main.scss';
 
-import {CSSTransition} from 'react-transition-group'
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 // getQueryObject
 window.getQueryObject = function getQueryObject(url) {
@@ -37,18 +37,22 @@ import BookDetailContainer from './view/BookDetail/bookDetail.jsx'
 import ChapterContentContainer from './view/ChapterContent/chapterContent.jsx'
 import TabBarContainer from './component/tabBar.js'
 import BookrackContainer from './view/Bookrack/Bookrack.jsx'
+import Home from './view/Home/home.jsx'
 // 路由
 import {HashRouter as Router, Link, Route} from 'react-router-dom'
 
 import Container from './Container.jsx';
 // app 程序入口
 const Main = (props) => {
-    return <Container {...props}>
-        <Route path='/' component={TabBarContainer}/>
-        <Route exact path='/booklist' component={BookListContainer}/>
-        <Route exact path='/books' component={BookDetailContainer}/>
-        <Route exact path='/chapters' component={ChapterContentContainer}/>
-    </Container>
+    return <div>
+        <Container {...props}>
+            <Route path='/' component={Home}/>
+            <Route exact path='/booklist' component={BookListContainer}/>
+            <Route exact path='/books' component={BookDetailContainer}/>
+            <Route exact path='/chapters' component={ChapterContentContainer}/>
+        </Container>
+    </div>
+
 }
 
 class App extends React.Component {
@@ -57,9 +61,16 @@ class App extends React.Component {
     }
     render() {
         return <Router>
-            <div>
-                <Route path='/' component={Main}/>
-            </div>
+            <Route
+                path='/'
+                render={(props) => {
+                return <Container {...props}>
+                    <Route exact path='/main' component={TabBarContainer}/>
+                    <Route exact path='/booklist' component={BookListContainer}/>
+                    <Route exact path='/books' component={BookDetailContainer}/>
+                    <Route exact path='/chapters' component={ChapterContentContainer}/>
+                </Container>
+            }}/>
         </Router>
     }
 }

@@ -22,7 +22,7 @@ export default function () {
     return (
         <div className='boy-channel-classification boy'>
             <div className='type'>
-                <Link to='/booklist?major=仙侠'>
+                <Link to={`/booklist?major=${encodeURIComponent('仙侠')}`}>
                     <div className="circle">
                         <BarItem svg={< ManSvg1 />} label='仙侠'/>
                     </div>
@@ -31,7 +31,7 @@ export default function () {
             </div>
             <div className='type'>
 
-                <Link to='/booklist?major=玄幻'>
+                <Link to={`/booklist?major=${encodeURIComponent('玄幻')}`}>
                     <div className="circle">
                         <BarItem svg={< ManSvg2 />} label='玄幻'/>
                     </div>
@@ -39,7 +39,7 @@ export default function () {
 
             </div>
             <div className='type'>
-                <Link to='/booklist?major=玄幻'>
+                <Link to={`/booklist?major=${encodeURIComponent('奇幻')}`}>
                     <div className="circle">
                         <BarItem svg={< ManSvg3 />} label='奇幻'/>
                     </div>
@@ -47,7 +47,7 @@ export default function () {
 
             </div>
             <div className='type'>
-                <Link to='/booklist?major=武侠'>
+                <Link to={`/booklist?major=${encodeURIComponent('武侠')}`}>
                     <div className="circle">
                         <BarItem svg={< ManSvg4 />} label='武侠'/>
                     </div>
@@ -55,7 +55,7 @@ export default function () {
 
             </div>
             <div className='type'>
-                <Link to='/booklist?major=灵异'>
+                <Link to={`/booklist?major=${encodeURIComponent('灵异')}`}>
                     <div className="circle">
                         <BarItem svg={< ManSvg5 />} label='灵异'/>
                     </div>
@@ -63,7 +63,7 @@ export default function () {
 
             </div>
             <div className='type'>
-                <Link to='/booklist?major=历史'>
+                <Link to={`/booklist?major=${encodeURIComponent('历史')}`}>
                     <div className="circle">
                         <BarItem svg={< ManSvg6 />} label='历史'/>
                     </div>
@@ -71,7 +71,7 @@ export default function () {
 
             </div>
             <div className='type'>
-                <Link to='/booklist?major=军事'>
+                <Link to={`/booklist?major=${encodeURIComponent('军事')}`}>
                     <div className="circle">
                         <BarItem svg={< ManSvg7 />} label='军事'/>
                     </div>
@@ -79,7 +79,7 @@ export default function () {
 
             </div>
             <div className='type'>
-                <Link to='/booklist?major=科幻'>
+                <Link to={`/booklist?major=${encodeURIComponent('科幻')}`}>
                     <div className="circle">
                         <BarItem svg={< ManSvg8 />} label='科幻'/>
                     </div>

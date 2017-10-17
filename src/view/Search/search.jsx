@@ -67,7 +67,7 @@ class Search extends React.Component {
 
         store.set('history-search', historySearch)
         this.setState({historySearch: historySearch})
-        history.push(`/booklist?query=${query}`, {showIndex: 2})
+        history.push(`/booklist?query=${query}`, null)
 
     }
 

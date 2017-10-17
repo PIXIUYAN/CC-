@@ -1,8 +1,9 @@
 
 .search-page{
     background: RGBA(255, 255, 255, 1);
+    padding-bottom: 50px;
     height: 100vh;
-     
+    overflow: auto;
     & .search-bar{
         //RGBA(240, 238, 226, 1)
         height: 44px;
