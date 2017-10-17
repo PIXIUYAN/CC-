@@ -18,7 +18,8 @@ class BookList extends React.Component {
             swiper: null,
             isLoadAll: false,
             loading: false,
-            startIndex: 0
+            startIndex: 0,
+            stopHandleClick: false
         }
 
     }
@@ -45,13 +46,15 @@ class BookList extends React.Component {
         var loadMore = this.LoadMoreFunctionActory()
         var swiper = new Swiper('.book-list', {
             slidesPerView: "auto",
-            mousewheelControl: true,
+            mousewheelControl: false,
             direction: 'vertical',
-            touchRatio: 0.5,
-            freeMode: true,
-            preventClicks: true,
-            preventLinksPropagation: true,
             shortSwipes: false,
+            freeMode: true,
+            passiveListeners: false,
+            freeModeMomentum: false,
+            onTouchMove: (swiper => {
+                this.setState({stopHandleClick: true})
+            }),
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 if (this.state.loading == false) 
@@ -74,22 +77,21 @@ class BookList extends React.Component {
         var searchParams = window.getQueryObject(location.search)
 
         if (searchParams['query']) 
-            console.log('query', searchParams['query'])
-        return API.fetchBookList(searchParams['query'], starIndex).then(data => {
-            console.log('data', data)
-            this.endLoading()
-            if (data.books.length > 0) {
-                this.setState({
-                    bookList: [
-                        ...this.state.bookList,
-                        ...data.books
-                    ]
-                })
-            }
+            return API.fetchBookList(searchParams['query'], starIndex).then(data => {
+                console.log('data', data)
+                this.endLoading()
+                if (data.books.length > 0) {
+                    this.setState({
+                        bookList: [
+                            ...this.state.bookList,
+                            ...data.books
+                        ]
+                    })
+                }
 
-            if (data.books.length < 19 || (!data.books.length > 0)) 
-                this.haveloadedAll()
-        })
+                if (data.books.length < 19 || (!data.books.length > 0)) 
+                    this.haveloadedAll()
+            })
 
         if (searchParams['major']) 
             return API.fetchListAtMajor(searchParams['major'], starIndex).then(data => {
@@ -132,12 +134,14 @@ class BookList extends React.Component {
             <div className='page'>
                 <header>
                     <BackSVG
-                        onClick={() => {
-                        this
-                            .props
-                            .history
-                            .goBack()
-                    }}/>
+                        onClick={this.state.stopHandleClick
+                        ? null
+                        : () => {
+                            this
+                                .props
+                                .history
+                                .goBack()
+                        }}/>
                     <p>
                         {window.getQueryObject(this.props.location.search)['major'] || '热门搜索'
 }
@@ -145,14 +149,23 @@ class BookList extends React.Component {
                 </header>
                 <div className='book-list swiper-container'>
                     <div className="swiper-wrapper">
-                        {bookList
-                            ? bookList.map((book, index) => {
-                                return <div className="swiper-slide" key={'book-' + index}>
-                                    <BookCell book={book}/>
-                                </div>
-                            })
-                            : ''
+                        <div className="swiper-slide">
+                            {bookList
+                                ? bookList.map((book, index) => {
+                                    return <BookCell
+                                        key={'book-' + index}
+                                        book={book}
+                                        onClick={() => {
+                                        this
+                                            .props
+                                            .history
+                                            .push(`/books?bookid=${book['_id']}`, null)
+                                    }}/>
+
+                                })
+                                : ''
 }
+                        </div>
 
                         <div className="swiper-slide">
                             {this.state.isLoadAll
