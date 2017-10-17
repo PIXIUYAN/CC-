@@ -50,11 +50,15 @@ class BookList extends React.Component {
             direction: 'vertical',
             shortSwipes: false,
             freeMode: true,
-            passiveListeners: false,
-            freeModeMomentum: false,
-            onTouchMove: (swiper => {
-                this.setState({stopHandleClick: true})
-            }),
+            onTouchMove: () => {
+                if (this.state.stopHandleClick == false) 
+                    this.setState({stopHandleClick: true})
+
+            },
+            onTouchEnd: () => {
+                if (this.state.stopHandleClick == true) 
+                    this.setState({stopHandleClick: false})
+            },
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 if (this.state.loading == false) 
@@ -134,14 +138,12 @@ class BookList extends React.Component {
             <div className='page'>
                 <header>
                     <BackSVG
-                        onClick={this.state.stopHandleClick
-                        ? null
-                        : () => {
-                            this
-                                .props
-                                .history
-                                .goBack()
-                        }}/>
+                        onClick={() => {
+                        this
+                            .props
+                            .history
+                            .goBack()
+                    }}/>
                     <p>
                         {window.getQueryObject(this.props.location.search)['major'] || '热门搜索'
 }
@@ -155,12 +157,14 @@ class BookList extends React.Component {
                                     return <BookCell
                                         key={'book-' + index}
                                         book={book}
-                                        onClick={() => {
-                                        this
-                                            .props
-                                            .history
-                                            .push(`/books?bookid=${book['_id']}`, null)
-                                    }}/>
+                                        onClick={this.state.stopHandleClick
+                                        ? null
+                                        : () => {
+                                            this
+                                                .props
+                                                .history
+                                                .push(`/books?bookid=${book['_id']}`, null)
+                                        }}/>
 
                                 })
                                 : ''
