@@ -47,8 +47,7 @@ class BookList extends React.Component {
             mousewheelControl: true,
             direction: 'vertical',
             freeMode: true,
-
-            onTouchEnd: (s, e) => {
+            onTouchMove: (s, e) => {
                 event.stopPropagation()
             },
             onReachEnd: (swiper) => {
@@ -146,7 +145,7 @@ class BookList extends React.Component {
                         <div className="swiper-slide">
                             {bookList
                                 ? bookList.map((book, index) => {
-                                    return <BookCell key={'book-' + index} book={book}/>
+                                    return <BookCell key={'book-' + index} book={book} history={this.props.history}/>
                                 })
                                 : ''
 }
