@@ -50,15 +50,7 @@ class BookList extends React.Component {
             direction: 'vertical',
             shortSwipes: false,
             freeMode: true,
-            onTouchMove: () => {
-                if (this.state.stopHandleClick == false) 
-                    this.setState({stopHandleClick: true})
 
-            },
-            onTouchEnd: () => {
-                if (this.state.stopHandleClick == true) 
-                    this.setState({stopHandleClick: false})
-            },
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 if (this.state.loading == false) 
@@ -157,14 +149,12 @@ class BookList extends React.Component {
                                     return <BookCell
                                         key={'book-' + index}
                                         book={book}
-                                        onClick={this.state.stopHandleClick
-                                        ? null
-                                        : () => {
-                                            this
-                                                .props
-                                                .history
-                                                .push(`/books?bookid=${book['_id']}`, null)
-                                        }}/>
+                                        onClick={() => {
+                                        this
+                                            .props
+                                            .history
+                                            .push(`/books?bookid=${book['_id']}`, null)
+                                    }}/>
 
                                 })
                                 : ''
