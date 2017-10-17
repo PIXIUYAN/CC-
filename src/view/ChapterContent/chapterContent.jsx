@@ -219,7 +219,11 @@ class ChapterContent extends React.Component {
             mousewheelControl: true,
             direction: 'vertical',
             freeMode: true,
+            onTap: () => {
+                this.handleToggleToolBar();
+                this.setState({showSetting: false})
 
+            },
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 this.loadMore()
@@ -336,10 +340,7 @@ class ChapterContent extends React.Component {
             {/* 小说正文 */}
 
             <div className='swiper-container ' id='swiper-chapter'>
-                <div
-                    className="swiper-wrapper"
-                    onClick=
-                    {()=>{ this.handleToggleToolBar(); this.setState({showSetting: false}) }}>
+                <div className="swiper-wrapper">
                     <div className="swiper-slide">
                         {textEle}
                     </div>
