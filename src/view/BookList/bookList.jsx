@@ -46,11 +46,8 @@ class BookList extends React.Component {
         var loadMore = this.LoadMoreFunctionActory()
         var swiper = new Swiper('.book-list', {
             slidesPerView: "auto",
-            mousewheelControl: false,
             direction: 'vertical',
-            shortSwipes: false,
             freeMode: true,
-
             onReachEnd: (swiper) => {
                 // 加载更多数据
                 if (this.state.loading == false) 
@@ -146,16 +143,7 @@ class BookList extends React.Component {
                         <div className="swiper-slide">
                             {bookList
                                 ? bookList.map((book, index) => {
-                                    return <BookCell
-                                        key={'book-' + index}
-                                        book={book}
-                                        onClick={() => {
-                                        this
-                                            .props
-                                            .history
-                                            .push(`/books?bookid=${book['_id']}`, null)
-                                    }}/>
-
+                                    return <BookCell key={'book-' + index} book={book}/>
                                 })
                                 : ''
 }
