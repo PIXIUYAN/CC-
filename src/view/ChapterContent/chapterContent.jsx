@@ -309,11 +309,9 @@ class ChapterContent extends React.Component {
             {/* 顶部导航栏 */}
 
             <header
-                style={{
-                transform: this.state.showToobar
-                    ? "translateY(0%)"
-                    : "translateY(-100%)"
-            }}>
+                className={this.state.showToobar
+                ? 'show-toolbar'
+                : 'hide-toolbar'}>
                 <div
                     className="back"
                     onClick={() => {
@@ -436,11 +434,9 @@ class ChapterContent extends React.Component {
             </div>
             {/* 底部工具栏 */}
             <footer
-                style={{
-                transform: this.state.showToobar
-                    ? "translateY(0%)"
-                    : "translateY(100%)"
-            }}>
+                className={this.state.showToobar
+                ? 'show-toolbar'
+                : 'hide-toolbar'}>
                 {/* 设置 */}
                 <div
                     onClick={() => {

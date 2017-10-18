@@ -1,8 +1,9 @@
 .chapter-content {
     position: relative;
     height: 100vh;
+    
     & header {
-        transition: .2s all ease-in;
+         
         position: fixed;
         height: 44px;
         background: RGBA(253, 253, 253, 1);
@@ -10,6 +11,15 @@
         z-index: 10;
         box-shadow: 0px 0px 1px gray;
         overflow: hidden;
+        transition: .5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        &.show-toolbar{
+            transform: translateY(0);
+            visibility: visible;
+        }
+        &.hide-toolbar{
+            transform: translateY(-100%);
+            visibility: hidden;
+        }
         & .back {
             position: absolute;
             left: 0;
@@ -166,7 +176,7 @@
         }
     } // 工具栏
     & footer {
-        transition: .2s all ease-in;
+        
         width: 100vw;
         position: fixed;
         bottom: -1px;
@@ -177,6 +187,15 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        transition: .5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        &.show-toolbar{
+            transform: translateY(0);
+            visibility: visible;
+        }
+        &.hide-toolbar{
+            transform: translateY(100%);
+            visibility: hidden;
+        }
         &>div {
             flex: 1;
             height: 100%;
