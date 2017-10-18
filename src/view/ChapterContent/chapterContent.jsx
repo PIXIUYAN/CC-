@@ -219,13 +219,8 @@ class ChapterContent extends React.Component {
             mousewheelControl: true,
             direction: 'vertical',
             freeMode: true,
-            onTouchMove: (swiper) => {
-
-                if (swiper.touches.diff > 80) 
-                    this.handleShowToolBar();
-                else if (swiper.touches.diff < -80) 
-                    this.handleHideToolBar();
-                
+            onTap: (swiper) => {
+                this.handleToggleToolBar();
                 this.setState({showSetting: false})
             },
             onReachEnd: (swiper) => {
