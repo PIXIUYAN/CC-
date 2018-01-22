@@ -27,7 +27,7 @@ window.getQueryObject = function getQueryObject(url) {
 }
 
 //  添加移动端点击
-initReactFastclick()
+//initReactFastclick()
 // 资源 import './public/css/reset.css'; import './public/css/animate.css' import
 // "./public/css/swiper.min.css" 组件 import GuideContainer from
 // 'bundle-loader?lazy&name=app-[name]!./view/Guide/Guide.jsx'
