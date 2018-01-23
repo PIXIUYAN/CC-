@@ -1,13 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import initReactFastclick from 'react-fastclick'
 import 'whatwg-fetch';
-
 import 'babel-polyfill';
 import './main.scss';
-
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-
 // getQueryObject
 window.getQueryObject = function getQueryObject(url) {
     url = url == null

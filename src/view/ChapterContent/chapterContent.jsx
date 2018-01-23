@@ -155,9 +155,11 @@ class ChapterContent extends React.Component {
     handleGetChapterContentAtIndex(chapterIndex) {
         if (this.state.chapterList.length > 0) {
             var link = this.state.chapterList[chapterIndex]['link']
+            console.log('link',link)
             API
                 .fetchChaperContent(link)
                 .then(data => {
+                 
                     data['chapter'].title = this.state.chapterList[chapterIndex]['title']
                     this.updateContentList(data)
                 })
@@ -166,7 +168,6 @@ class ChapterContent extends React.Component {
     }
 
     firstLoad() {
-
         this.handleGetChapterContentAtIndex(this.state.chapterIndex)
         this.setState({chapterIndex: this.state.chapterIndex})
     }
@@ -188,19 +189,22 @@ class ChapterContent extends React.Component {
         API
             .fetchBookSource(bookid)
             .then(data => {
-
-                // this.setState({bookSource: data})
+                 
+                
                 var sourceId;
                 if (data.length > 2) 
                     sourceId = data[2]['_id']
                 else 
                     sourceId = data[0]['_id']
 
-                var bookSource = data
+                var bookSource = data;
+
+
+                console.log('bookSource',bookSource,sourceId)
                 API
                     .fetchChaperList(sourceId)
                     .then(data => {
-
+                        console.log('章节目录',data)
                         this.setState({
                             bookSource: bookSource,
                             chapterList: data['chapters'],

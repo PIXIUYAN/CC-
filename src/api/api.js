@@ -7,8 +7,7 @@
 
  */
 function fetchChaperList(sourceId) {
-    var url = `/api/toc/${sourceId}?view=chapters`
-
+    var url = `/api/toc/${sourceId}?view=chapters`;
     return fetch(url).then(response => response.json())
 
 }

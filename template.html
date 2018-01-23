@@ -1,21 +1,50 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+    <style>
+     
+    </style>
 </head>
-
-<body>    
-    <div id="root"></div>
+<body>
+    
 </body>
-
+<script>
+    (function (win, doc) {
+  var docEl = doc.documentElement;
  
-<script type="text/javascript" src="/bundle.js"></script>
-<!-- Georgia,"Times New Roman",Times,Kai,"Kaiti SC",KaiTi,BiauKai,FontAwesome,serif -->
-
+  function setRemUnit () {
+    var docWidth = docEl.clientWidth;
+    var rem = docWidth / 10;
+    docEl.style.fontSize = rem + 'px';
+  }
+ 
+  win.addEventListener('resize', function () {
+    setRemUnit();
+  }, false);
+  win.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      setRemUnit();
+    }
+  }, false);
+ 
+  setRemUnit();
+ 
+  if (win.devicePixelRatio && win.devicePixelRatio >= 2) {
+    var testEl = doc.createElement('div');
+    var fakeBody = doc.createElement('body');
+    testEl.style.border = '0.5px solid transparent';
+    fakeBody.appendChild(testEl);
+    docEl.appendChild(fakeBody);
+    if (testEl.offsetHeight === 1) {
+        console.log(docEl)
+      docEl.classList.add('hairlines');
+    }
+    docEl.removeChild(fakeBody);
+  }
+}) (window, document);
+</script>
 </html>

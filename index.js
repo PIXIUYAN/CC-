@@ -15,7 +15,8 @@ const server = new WebpackDevServer(compiler, {
             }
         },
         "/api": {
-            target: "http://api.zhuishushenqi.com",
+            target: "http://api.zhuishushenqi.com/",
+            changeOrigin: true,
             pathRewrite: {
                 "^/api": ""
             }
@@ -32,3 +33,4 @@ const server = new WebpackDevServer(compiler, {
 server.listen(8080, '0.0.0.0', (err) => {
     console.log('监听8080成功')
 })
+ 

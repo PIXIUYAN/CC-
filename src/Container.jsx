@@ -12,10 +12,11 @@ export default class Container extends React.Component {
         for (var item of this.props.children) {
             if (item.props.path == this.props.location.pathname) {
                 var Component = item.props.component;
+                console.log('Component', Component)
                 break;
             }
         }
-        console.log('this.props.history', this.props.history)
+     
         switch (this.props.history.action) {
             case 'POP':
                 var transitionName = 'slide-out'
